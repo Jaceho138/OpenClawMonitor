@@ -1,0 +1,1430 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="format-detection" content="telephone=no">
+    <title>OpenClaw 系统日志监控报告</title>
+    <!--[if mso]>
+    <noscript>
+        <xml>
+            <o:OfficeDocumentSettings>
+                <o:AllowPNG/>
+                <o:PixelsPerInch>96</o:PixelsPerInch>
+            </o:OfficeDocumentSettings>
+        </xml>
+    </noscript>
+    <![endif]-->
+    <style type="text/css">
+        /* Reset styles */
+        body {
+            margin: 0 !important;
+            padding: 0 !important;
+            width: 100% !important;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+        }
+        
+        img {
+            border: 0;
+            height: auto;
+            line-height: 100%;
+            outline: none;
+            text-decoration: none;
+            -ms-interpolation-mode: bicubic;
+        }
+        
+        table {
+            border-collapse: collapse !important;
+            mso-table-lspace: 0pt;
+            mso-table-rspace: 0pt;
+        }
+        
+        /* Mobile responsive */
+        @media only screen and (max-width: 600px) {
+            .container {
+                width: 100% !important;
+                padding: 10px !important;
+            }
+            .stat-card {
+                margin-bottom: 15px !important;
+            }
+            .header-title {
+                font-size: 24px !important;
+            }
+            .chart-bar {
+                height: 20px !important;
+            }
+        }
+    </style>
+</head>
+<body style="margin:0;padding:0;font-family:'Segoe UI','Microsoft YaHei',Arial,sans-serif;background-color:#f4f7fa;">
+    
+    <!-- Fallback text for non-HTML email clients -->
+    <div style="display:none;font-size:1px;color:#fefefe;line-height:1px;max-height:0px;max-width:0px;opacity:0;overflow:hidden;">
+        OpenClaw 系统监控报告 - 2026-02-02T19:35:51.979635
+    </div>
+    
+    <!-- Main container -->
+    <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background-color:#f4f7fa;padding:20px 0;">
+        <tr>
+            <td align="center">
+                <!-- Content wrapper -->
+                <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="600" class="container" style="max-width:600px;background-color:#ffffff;border-radius:12px;box-shadow:0 4px 20px rgba(0,0,0,0.08);overflow:hidden;">
+                    
+                    <!-- Header with gradient -->
+                    <tr>
+                        <td style="background:linear-gradient(135deg, #667eea 0%, #764ba2 100%);padding:40px 30px;text-align:center;">
+                            <h1 class="header-title" style="margin:0;color:#ffffff;font-size:28px;font-weight:700;letter-spacing:-0.5px;line-height:1.3;">
+                                📊 OpenClaw 系统监控报告
+                            </h1>
+                            <p style="margin:15px 0 0 0;color:rgba(255,255,255,0.9);font-size:14px;line-height:1.5;">
+                                🕐 分析时间: 2026-02-02T19:35:51.979635
+                            </p>
+                        </td>
+                    </tr>
+
+                    <!-- Summary Stats Cards -->
+                    <tr>
+                        <td style="padding:30px 30px 10px 30px;">
+                            <h2 style="margin:0 0 20px 0;color:#2c3e50;font-size:20px;font-weight:600;border-bottom:2px solid #e8edf2;padding-bottom:10px;">
+                                📈 运行概览
+                            </h2>
+                        </td>
+                    </tr>
+                    
+                    <!-- 3-column stats grid -->
+                    <tr>
+                        <td style="padding:0 30px;">
+                            <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+                                <tr>
+                                    <!-- Total Runs -->
+                                    <td width="33%" style="padding:10px;">
+                                        <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background:linear-gradient(135deg, #667eea 0%, #764ba2 100%);border-radius:8px;padding:20px;text-align:center;">
+                                            <tr>
+                                                <td>
+                                                    <div style="font-size:32px;font-weight:700;color:#ffffff;margin-bottom:5px;">53</div>
+                                                    <div style="font-size:13px;color:rgba(255,255,255,0.9);">总运行数</div>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    
+                                    <!-- Completed -->
+                                    <td width="33%" style="padding:10px;">
+                                        <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background:linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);border-radius:8px;padding:20px;text-align:center;">
+                                            <tr>
+                                                <td>
+                                                    <div style="font-size:32px;font-weight:700;color:#ffffff;margin-bottom:5px;">53</div>
+                                                    <div style="font-size:13px;color:rgba(255,255,255,0.9);">已完成</div>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    
+                                    <!-- In Progress -->
+                                    <td width="33%" style="padding:10px;">
+                                        <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background:linear-gradient(135deg, #fa709a 0%, #fee140 100%);border-radius:8px;padding:20px;text-align:center;">
+                                            <tr>
+                                                <td>
+                                                    <div style="font-size:32px;font-weight:700;color:#ffffff;margin-bottom:5px;">0</div>
+                                                    <div style="font-size:13px;color:rgba(255,255,255,0.9);">进行中</div>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    
+                    <!-- Second row of stats -->
+                    <tr>
+                        <td style="padding:0 30px;">
+                            <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+                                <tr>
+                                    <!-- Sessions -->
+                                    <td width="33%" style="padding:10px;">
+                                        <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background:linear-gradient(135deg, #30cfd0 0%, #330867 100%);border-radius:8px;padding:20px;text-align:center;">
+                                            <tr>
+                                                <td>
+                                                    <div style="font-size:32px;font-weight:700;color:#ffffff;margin-bottom:5px;">372</div>
+                                                    <div style="font-size:13px;color:rgba(255,255,255,0.9);">会话数</div>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    
+                                    <!-- API Calls -->
+                                    <td width="33%" style="padding:10px;">
+                                        <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background:linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);border-radius:8px;padding:20px;text-align:center;">
+                                            <tr>
+                                                <td>
+                                                    <div style="font-size:32px;font-weight:700;color:#2c3e50;margin-bottom:5px;">13</div>
+                                                    <div style="font-size:13px;color:#555;">API 调用</div>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    
+                                    <!-- Errors -->
+                                    <td width="33%" style="padding:10px;">
+                                        <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background:linear-gradient(135deg, #f093fb 0%, #f5576c 100%);border-radius:8px;padding:20px;text-align:center;">
+                                            <tr>
+                                                <td>
+                                                    <div style="font-size:32px;font-weight:700;color:#ffffff;margin-bottom:5px;">160</div>
+                                                    <div style="font-size:13px;color:rgba(255,255,255,0.9);">错误警告</div>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    
+                    <!-- Info panel with time range and stats -->
+                    <tr>
+                        <td style="padding:20px 30px;">
+                            <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background:#f8f9fa;border-left:4px solid #667eea;border-radius:6px;padding:15px;">
+                                <tr>
+                                    <td>
+                                        <p style="margin:0 0 8px 0;color:#2c3e50;font-size:14px;line-height:1.6;">
+                                            <strong>📅 时间范围:</strong> 2026-02-02T01:10:40.079Z 至 2026-02-02T11:35:47.236Z
+                                        </p>
+                                        <p style="margin:0 0 8px 0;color:#2c3e50;font-size:14px;line-height:1.6;">
+                                            <strong>✅ 成功率:</strong> <span style="color:#4caf50;font-weight:600;">100.0%</span> (53/53 运行完成)
+                                        </p>
+                                        <p style="margin:0;color:#2c3e50;font-size:14px;line-height:1.6;">
+                                            <strong>📝 日志解析:</strong> <span style="color:#2196f3;font-weight:600;">100.0%</span> (1,407/1,407 行)
+                                        </p>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+
+                    <!-- API Usage Section -->
+                    <tr>
+                        <td style="padding:30px 30px 10px 30px;">
+                            <h2 style="margin:0 0 20px 0;color:#2c3e50;font-size:20px;font-weight:600;border-bottom:2px solid #e8edf2;padding-bottom:10px;">
+                                🔌 API 使用情况
+                            </h2>
+                        </td>
+                    </tr>
+                    
+                    <!-- API Stats Cards -->
+                    <tr>
+                        <td style="padding:0 30px 20px 30px;">
+                            <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+                                <tr>
+                                    <td width="50%" style="padding:10px;">
+                                        <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background:linear-gradient(135deg, #667eea 0%, #764ba2 100%);border-radius:8px;padding:20px;text-align:center;">
+                                            <tr>
+                                                <td>
+                                                    <div style="font-size:36px;font-weight:700;color:#ffffff;margin-bottom:5px;">13</div>
+                                                    <div style="font-size:13px;color:rgba(255,255,255,0.9);">API 调用次数</div>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td width="50%" style="padding:10px;">
+                                        <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background:linear-gradient(135deg, #f093fb 0%, #f5576c 100%);border-radius:8px;padding:20px;text-align:center;">
+                                            <tr>
+                                                <td>
+                                                    <div style="font-size:36px;font-weight:700;color:#ffffff;margin-bottom:5px;">0</div>
+                                                    <div style="font-size:13px;color:rgba(255,255,255,0.9);">错误次数 (0.0%)</div>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    
+                    <!-- Top API Methods Chart -->
+                    <tr>
+                        <td style="padding:0 30px 20px 30px;">
+                            <h3 style="margin:0 0 15px 0;color:#2c3e50;font-size:16px;font-weight:600;">
+                                📊 热门 API 方法 (Top 10)
+                            </h3>
+                            <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background:#ffffff;border:1px solid #e8edf2;border-radius:8px;overflow:hidden;">
+                                
+                                <tr>
+                                    <td style="padding:10px;border-bottom:1px solid #e8edf2;color:#2c3e50;font-size:13px;">
+                                        chat.history
+                                    </td>
+                                    <td style="padding:10px;border-bottom:1px solid #e8edf2;width:60%;">
+                                        <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+                                            <tr>
+                                                <td style="background:#e8edf2;border-radius:4px;padding:0;height:24px;position:relative;">
+                                                    <div style="background:linear-gradient(90deg, #667eea 0%, #764ba2 100%);height:24px;border-radius:4px;width:100.0%;"></div>
+                                                </td>
+                                                <td style="padding-left:10px;white-space:nowrap;color:#2c3e50;font-weight:600;font-size:13px;">
+                                                    13
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+
+                    <!-- External Conversations Section -->
+                    <tr>
+                        <td style="padding:30px 30px 10px 30px;">
+                            <h2 style="margin:0 0 20px 0;color:#2c3e50;font-size:20px;font-weight:600;border-bottom:2px solid #e8edf2;padding-bottom:10px;">
+                                💬 外部对话数据
+                            </h2>
+                        </td>
+                    </tr>
+                    
+                    <!-- Total Conversations Card -->
+                    <tr>
+                        <td style="padding:0 30px 20px 30px;">
+                            <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background:linear-gradient(135deg, #fa709a 0%, #fee140 100%);border-radius:8px;padding:25px;text-align:center;">
+                                <tr>
+                                    <td>
+                                        <div style="font-size:40px;font-weight:700;color:#ffffff;margin-bottom:5px;">117</div>
+                                        <div style="font-size:14px;color:rgba(255,255,255,0.95);font-weight:500;">外部对话事件总数</div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    
+                    <!-- Channel Distribution Chart -->
+                    <tr>
+                        <td style="padding:0 30px 20px 30px;">
+                            <h3 style="margin:0 0 15px 0;color:#2c3e50;font-size:16px;font-weight:600;">
+                                📡 渠道分布 (Top 10)
+                            </h3>
+                            <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background:#ffffff;border:1px solid #e8edf2;border-radius:8px;overflow:hidden;">
+                                
+                                <tr>
+                                    <td style="padding:10px;border-bottom:1px solid #e8edf2;">
+                                        <span style="display:inline-block;width:12px;height:12px;background:linear-gradient(135deg, #667eea 0%, #764ba2 100%);border-radius:3px;margin-right:8px;vertical-align:middle;"></span>
+                                        <span style="color:#2c3e50;font-size:13px;vertical-align:middle;">telegram</span>
+                                    </td>
+                                    <td style="padding:10px;border-bottom:1px solid #e8edf2;width:55%;">
+                                        <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+                                            <tr>
+                                                <td style="background:#e8edf2;border-radius:4px;padding:0;height:24px;">
+                                                    <div style="background:linear-gradient(135deg, #667eea 0%, #764ba2 100%);height:24px;border-radius:4px;width:100.0%;"></div>
+                                                </td>
+                                                <td style="padding-left:10px;white-space:nowrap;color:#2c3e50;font-weight:600;font-size:13px;">
+                                                    74 <span style="color:#95a5a6;font-weight:400;">(63.2%)</span>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding:10px;border-bottom:1px solid #e8edf2;">
+                                        <span style="display:inline-block;width:12px;height:12px;background:linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);border-radius:3px;margin-right:8px;vertical-align:middle;"></span>
+                                        <span style="color:#2c3e50;font-size:13px;vertical-align:middle;">webchat</span>
+                                    </td>
+                                    <td style="padding:10px;border-bottom:1px solid #e8edf2;width:55%;">
+                                        <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+                                            <tr>
+                                                <td style="background:#e8edf2;border-radius:4px;padding:0;height:24px;">
+                                                    <div style="background:linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);height:24px;border-radius:4px;width:29.7%;"></div>
+                                                </td>
+                                                <td style="padding-left:10px;white-space:nowrap;color:#2c3e50;font-weight:600;font-size:13px;">
+                                                    22 <span style="color:#95a5a6;font-weight:400;">(18.8%)</span>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding:10px;border-bottom:1px solid #e8edf2;">
+                                        <span style="display:inline-block;width:12px;height:12px;background:linear-gradient(135deg, #fa709a 0%, #fee140 100%);border-radius:3px;margin-right:8px;vertical-align:middle;"></span>
+                                        <span style="color:#2c3e50;font-size:13px;vertical-align:middle;">telegram"}</span>
+                                    </td>
+                                    <td style="padding:10px;border-bottom:1px solid #e8edf2;width:55%;">
+                                        <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+                                            <tr>
+                                                <td style="background:#e8edf2;border-radius:4px;padding:0;height:24px;">
+                                                    <div style="background:linear-gradient(135deg, #fa709a 0%, #fee140 100%);height:24px;border-radius:4px;width:17.6%;"></div>
+                                                </td>
+                                                <td style="padding-left:10px;white-space:nowrap;color:#2c3e50;font-weight:600;font-size:13px;">
+                                                    13 <span style="color:#95a5a6;font-weight:400;">(11.1%)</span>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding:10px;border-bottom:1px solid #e8edf2;">
+                                        <span style="display:inline-block;width:12px;height:12px;background:linear-gradient(135deg, #30cfd0 0%, #330867 100%);border-radius:3px;margin-right:8px;vertical-align:middle;"></span>
+                                        <span style="color:#2c3e50;font-size:13px;vertical-align:middle;">signal</span>
+                                    </td>
+                                    <td style="padding:10px;border-bottom:1px solid #e8edf2;width:55%;">
+                                        <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+                                            <tr>
+                                                <td style="background:#e8edf2;border-radius:4px;padding:0;height:24px;">
+                                                    <div style="background:linear-gradient(135deg, #30cfd0 0%, #330867 100%);height:24px;border-radius:4px;width:6.8%;"></div>
+                                                </td>
+                                                <td style="padding-left:10px;white-space:nowrap;color:#2c3e50;font-weight:600;font-size:13px;">
+                                                    5 <span style="color:#95a5a6;font-weight:400;">(4.3%)</span>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding:10px;border-bottom:1px solid #e8edf2;">
+                                        <span style="display:inline-block;width:12px;height:12px;background:linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);border-radius:3px;margin-right:8px;vertical-align:middle;"></span>
+                                        <span style="color:#2c3e50;font-size:13px;vertical-align:middle;">line</span>
+                                    </td>
+                                    <td style="padding:10px;border-bottom:1px solid #e8edf2;width:55%;">
+                                        <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+                                            <tr>
+                                                <td style="background:#e8edf2;border-radius:4px;padding:0;height:24px;">
+                                                    <div style="background:linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);height:24px;border-radius:4px;width:2.7%;"></div>
+                                                </td>
+                                                <td style="padding-left:10px;white-space:nowrap;color:#2c3e50;font-weight:600;font-size:13px;">
+                                                    2 <span style="color:#95a5a6;font-weight:400;">(1.7%)</span>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding:10px;border-bottom:1px solid #e8edf2;">
+                                        <span style="display:inline-block;width:12px;height:12px;background:linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);border-radius:3px;margin-right:8px;vertical-align:middle;"></span>
+                                        <span style="color:#2c3e50;font-size:13px;vertical-align:middle;">whatsapp</span>
+                                    </td>
+                                    <td style="padding:10px;border-bottom:1px solid #e8edf2;width:55%;">
+                                        <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+                                            <tr>
+                                                <td style="background:#e8edf2;border-radius:4px;padding:0;height:24px;">
+                                                    <div style="background:linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);height:24px;border-radius:4px;width:1.4%;"></div>
+                                                </td>
+                                                <td style="padding-left:10px;white-space:nowrap;color:#2c3e50;font-weight:600;font-size:13px;">
+                                                    1 <span style="color:#95a5a6;font-weight:400;">(0.9%)</span>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+
+                    <!-- Statistics Section -->
+                    <tr>
+                        <td style="padding:30px 30px 10px 30px;">
+                            <h2 style="margin:0 0 20px 0;color:#2c3e50;font-size:20px;font-weight:600;border-bottom:2px solid #e8edf2;padding-bottom:10px;">
+                                📊 事件统计 (Top 10)
+                            </h2>
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td style="padding:0 30px 20px 30px;">
+                            <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background:#ffffff;border:1px solid #e8edf2;border-radius:8px;overflow:hidden;">
+                                
+                                <tr>
+                                    <td style="padding:10px;border-bottom:1px solid #e8edf2;color:#2c3e50;font-size:13px;">
+                                        other
+                                    </td>
+                                    <td style="padding:10px;border-bottom:1px solid #e8edf2;width:60%;">
+                                        <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+                                            <tr>
+                                                <td style="background:#e8edf2;border-radius:4px;padding:0;height:24px;">
+                                                    <div style="background:linear-gradient(90deg, #4facfe 0%, #00f2fe 100%);height:24px;border-radius:4px;width:100.0%;"></div>
+                                                </td>
+                                                <td style="padding-left:10px;white-space:nowrap;color:#2c3e50;font-weight:600;font-size:13px;">
+                                                    440
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding:10px;border-bottom:1px solid #e8edf2;color:#2c3e50;font-size:13px;">
+                                        session_event
+                                    </td>
+                                    <td style="padding:10px;border-bottom:1px solid #e8edf2;width:60%;">
+                                        <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+                                            <tr>
+                                                <td style="background:#e8edf2;border-radius:4px;padding:0;height:24px;">
+                                                    <div style="background:linear-gradient(90deg, #4facfe 0%, #00f2fe 100%);height:24px;border-radius:4px;width:60.5%;"></div>
+                                                </td>
+                                                <td style="padding-left:10px;white-space:nowrap;color:#2c3e50;font-weight:600;font-size:13px;">
+                                                    266
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding:10px;border-bottom:1px solid #e8edf2;color:#2c3e50;font-size:13px;">
+                                        run_start
+                                    </td>
+                                    <td style="padding:10px;border-bottom:1px solid #e8edf2;width:60%;">
+                                        <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+                                            <tr>
+                                                <td style="background:#e8edf2;border-radius:4px;padding:0;height:24px;">
+                                                    <div style="background:linear-gradient(90deg, #4facfe 0%, #00f2fe 100%);height:24px;border-radius:4px;width:50.5%;"></div>
+                                                </td>
+                                                <td style="padding-left:10px;white-space:nowrap;color:#2c3e50;font-weight:600;font-size:13px;">
+                                                    222
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding:10px;border-bottom:1px solid #e8edf2;color:#2c3e50;font-size:13px;">
+                                        run_event
+                                    </td>
+                                    <td style="padding:10px;border-bottom:1px solid #e8edf2;width:60%;">
+                                        <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+                                            <tr>
+                                                <td style="background:#e8edf2;border-radius:4px;padding:0;height:24px;">
+                                                    <div style="background:linear-gradient(90deg, #4facfe 0%, #00f2fe 100%);height:24px;border-radius:4px;width:33.6%;"></div>
+                                                </td>
+                                                <td style="padding-left:10px;white-space:nowrap;color:#2c3e50;font-weight:600;font-size:13px;">
+                                                    148
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding:10px;border-bottom:1px solid #e8edf2;color:#2c3e50;font-size:13px;">
+                                        gateway_event
+                                    </td>
+                                    <td style="padding:10px;border-bottom:1px solid #e8edf2;width:60%;">
+                                        <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+                                            <tr>
+                                                <td style="background:#e8edf2;border-radius:4px;padding:0;height:24px;">
+                                                    <div style="background:linear-gradient(90deg, #4facfe 0%, #00f2fe 100%);height:24px;border-radius:4px;width:26.8%;"></div>
+                                                </td>
+                                                <td style="padding-left:10px;white-space:nowrap;color:#2c3e50;font-weight:600;font-size:13px;">
+                                                    118
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding:10px;border-bottom:1px solid #e8edf2;color:#2c3e50;font-size:13px;">
+                                        session_state
+                                    </td>
+                                    <td style="padding:10px;border-bottom:1px solid #e8edf2;width:60%;">
+                                        <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+                                            <tr>
+                                                <td style="background:#e8edf2;border-radius:4px;padding:0;height:24px;">
+                                                    <div style="background:linear-gradient(90deg, #4facfe 0%, #00f2fe 100%);height:24px;border-radius:4px;width:24.1%;"></div>
+                                                </td>
+                                                <td style="padding-left:10px;white-space:nowrap;color:#2c3e50;font-weight:600;font-size:13px;">
+                                                    106
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding:10px;border-bottom:1px solid #e8edf2;color:#2c3e50;font-size:13px;">
+                                        run_complete
+                                    </td>
+                                    <td style="padding:10px;border-bottom:1px solid #e8edf2;width:60%;">
+                                        <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+                                            <tr>
+                                                <td style="background:#e8edf2;border-radius:4px;padding:0;height:24px;">
+                                                    <div style="background:linear-gradient(90deg, #4facfe 0%, #00f2fe 100%);height:24px;border-radius:4px;width:12.0%;"></div>
+                                                </td>
+                                                <td style="padding-left:10px;white-space:nowrap;color:#2c3e50;font-weight:600;font-size:13px;">
+                                                    53
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding:10px;border-bottom:1px solid #e8edf2;color:#2c3e50;font-size:13px;">
+                                        file_access
+                                    </td>
+                                    <td style="padding:10px;border-bottom:1px solid #e8edf2;width:60%;">
+                                        <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+                                            <tr>
+                                                <td style="background:#e8edf2;border-radius:4px;padding:0;height:24px;">
+                                                    <div style="background:linear-gradient(90deg, #4facfe 0%, #00f2fe 100%);height:24px;border-radius:4px;width:7.7%;"></div>
+                                                </td>
+                                                <td style="padding-left:10px;white-space:nowrap;color:#2c3e50;font-weight:600;font-size:13px;">
+                                                    34
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding:10px;border-bottom:1px solid #e8edf2;color:#2c3e50;font-size:13px;">
+                                        gateway_listening
+                                    </td>
+                                    <td style="padding:10px;border-bottom:1px solid #e8edf2;width:60%;">
+                                        <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+                                            <tr>
+                                                <td style="background:#e8edf2;border-radius:4px;padding:0;height:24px;">
+                                                    <div style="background:linear-gradient(90deg, #4facfe 0%, #00f2fe 100%);height:24px;border-radius:4px;width:2.7%;"></div>
+                                                </td>
+                                                <td style="padding-left:10px;white-space:nowrap;color:#2c3e50;font-weight:600;font-size:13px;">
+                                                    12
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding:10px;border-bottom:1px solid #e8edf2;color:#2c3e50;font-size:13px;">
+                                        gateway_mounted
+                                    </td>
+                                    <td style="padding:10px;border-bottom:1px solid #e8edf2;width:60%;">
+                                        <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+                                            <tr>
+                                                <td style="background:#e8edf2;border-radius:4px;padding:0;height:24px;">
+                                                    <div style="background:linear-gradient(90deg, #4facfe 0%, #00f2fe 100%);height:24px;border-radius:4px;width:1.4%;"></div>
+                                                </td>
+                                                <td style="padding-left:10px;white-space:nowrap;color:#2c3e50;font-weight:600;font-size:13px;">
+                                                    6
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+
+                    <!-- Runs Section -->
+                    <tr>
+                        <td style="padding:30px 30px 10px 30px;">
+                            <h2 style="margin:0 0 20px 0;color:#2c3e50;font-size:20px;font-weight:600;border-bottom:2px solid #e8edf2;padding-bottom:10px;">
+                                🚀 运行详情
+                            </h2>
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td style="padding:0 30px;">
+                            <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+                                <tr>
+                                    <td width="50%" style="padding:10px;">
+                                        <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background:linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);border-radius:8px;padding:20px;text-align:center;">
+                                            <tr>
+                                                <td>
+                                                    <div style="font-size:36px;font-weight:700;color:#ffffff;margin-bottom:5px;">0</div>
+                                                    <div style="font-size:13px;color:rgba(255,255,255,0.9);">已完成</div>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td width="50%" style="padding:10px;">
+                                        <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background:linear-gradient(135deg, #fa709a 0%, #fee140 100%);border-radius:8px;padding:20px;text-align:center;">
+                                            <tr>
+                                                <td>
+                                                    <div style="font-size:36px;font-weight:700;color:#ffffff;margin-bottom:5px;">0</div>
+                                                    <div style="font-size:13px;color:rgba(255,255,255,0.9);">运行中</div>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td style="padding:20px 30px 10px 30px;">
+                            <h3 style="margin:0;color:#2c3e50;font-size:16px;font-weight:600;">最近运行 (最后 20 条)</h3>
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td style="padding:0 30px 20px 30px;">
+                            <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background:#ffffff;border:1px solid #e8edf2;border-radius:8px;overflow:hidden;">
+                                <tr style="background:#f8f9fa;">
+                                    <th style="padding:12px;text-align:left;color:#2c3e50;font-size:13px;font-weight:600;border-bottom:2px solid #e8edf2;">运行 ID</th>
+                                    <th style="padding:12px;text-align:center;color:#2c3e50;font-size:13px;font-weight:600;border-bottom:2px solid #e8edf2;">状态</th>
+                                    <th style="padding:12px;text-align:left;color:#2c3e50;font-size:13px;font-weight:600;border-bottom:2px solid #e8edf2;">开始时间</th>
+                                    <th style="padding:12px;text-align:left;color:#2c3e50;font-size:13px;font-weight:600;border-bottom:2px solid #e8edf2;">完成时间</th>
+                                </tr>
+
+                                <tr>
+                                    <td style="padding:10px;border-bottom:1px solid #e8edf2;font-family:monospace;font-size:12px;color:#495057;">6762ffde-61f6-4e14-900a-...</td>
+                                    <td style="padding:10px;border-bottom:1px solid #e8edf2;text-align:center;"><span style="background:#d4edda;color:#155724;padding:4px 10px;border-radius:4px;font-size:11px;font-weight:600;">COMPLETE</span></td>
+                                    <td style="padding:10px;border-bottom:1px solid #e8edf2;color:#6c757d;font-size:12px;">2026-02-02T05:28:34.212Z</td>
+                                    <td style="padding:10px;border-bottom:1px solid #e8edf2;color:#6c757d;font-size:12px;">2026-02-02T05:28:49.266Z</td>
+                                </tr>
+
+                                <tr>
+                                    <td style="padding:10px;border-bottom:1px solid #e8edf2;font-family:monospace;font-size:12px;color:#495057;">d33bf054-9186-4602-af69-...</td>
+                                    <td style="padding:10px;border-bottom:1px solid #e8edf2;text-align:center;"><span style="background:#d4edda;color:#155724;padding:4px 10px;border-radius:4px;font-size:11px;font-weight:600;">COMPLETE</span></td>
+                                    <td style="padding:10px;border-bottom:1px solid #e8edf2;color:#6c757d;font-size:12px;">2026-02-02T05:30:58.605Z</td>
+                                    <td style="padding:10px;border-bottom:1px solid #e8edf2;color:#6c757d;font-size:12px;">2026-02-02T05:31:01.912Z</td>
+                                </tr>
+
+                                <tr>
+                                    <td style="padding:10px;border-bottom:1px solid #e8edf2;font-family:monospace;font-size:12px;color:#495057;">4218363e-ecdf-4923-a3ff-...</td>
+                                    <td style="padding:10px;border-bottom:1px solid #e8edf2;text-align:center;"><span style="background:#d4edda;color:#155724;padding:4px 10px;border-radius:4px;font-size:11px;font-weight:600;">COMPLETE</span></td>
+                                    <td style="padding:10px;border-bottom:1px solid #e8edf2;color:#6c757d;font-size:12px;">2026-02-02T05:32:19.320Z</td>
+                                    <td style="padding:10px;border-bottom:1px solid #e8edf2;color:#6c757d;font-size:12px;">2026-02-02T05:32:34.180Z</td>
+                                </tr>
+
+                                <tr>
+                                    <td style="padding:10px;border-bottom:1px solid #e8edf2;font-family:monospace;font-size:12px;color:#495057;">4fb4ba15-8c21-44f8-a422-...</td>
+                                    <td style="padding:10px;border-bottom:1px solid #e8edf2;text-align:center;"><span style="background:#d4edda;color:#155724;padding:4px 10px;border-radius:4px;font-size:11px;font-weight:600;">COMPLETE</span></td>
+                                    <td style="padding:10px;border-bottom:1px solid #e8edf2;color:#6c757d;font-size:12px;">2026-02-02T05:34:16.537Z</td>
+                                    <td style="padding:10px;border-bottom:1px solid #e8edf2;color:#6c757d;font-size:12px;">2026-02-02T05:34:28.664Z</td>
+                                </tr>
+
+                                <tr>
+                                    <td style="padding:10px;border-bottom:1px solid #e8edf2;font-family:monospace;font-size:12px;color:#495057;">42a1b0d7-d7f2-46ea-9d5d-...</td>
+                                    <td style="padding:10px;border-bottom:1px solid #e8edf2;text-align:center;"><span style="background:#d4edda;color:#155724;padding:4px 10px;border-radius:4px;font-size:11px;font-weight:600;">COMPLETE</span></td>
+                                    <td style="padding:10px;border-bottom:1px solid #e8edf2;color:#6c757d;font-size:12px;">2026-02-02T05:36:37.384Z</td>
+                                    <td style="padding:10px;border-bottom:1px solid #e8edf2;color:#6c757d;font-size:12px;">2026-02-02T05:36:46.980Z</td>
+                                </tr>
+
+                                <tr>
+                                    <td style="padding:10px;border-bottom:1px solid #e8edf2;font-family:monospace;font-size:12px;color:#495057;">b88e6ce8-8081-436f-8355-...</td>
+                                    <td style="padding:10px;border-bottom:1px solid #e8edf2;text-align:center;"><span style="background:#d4edda;color:#155724;padding:4px 10px;border-radius:4px;font-size:11px;font-weight:600;">COMPLETE</span></td>
+                                    <td style="padding:10px;border-bottom:1px solid #e8edf2;color:#6c757d;font-size:12px;">2026-02-02T05:41:14.030Z</td>
+                                    <td style="padding:10px;border-bottom:1px solid #e8edf2;color:#6c757d;font-size:12px;">2026-02-02T05:41:21.149Z</td>
+                                </tr>
+
+                                <tr>
+                                    <td style="padding:10px;border-bottom:1px solid #e8edf2;font-family:monospace;font-size:12px;color:#495057;">6f2d1dc0-92f4-426a-ad4c-...</td>
+                                    <td style="padding:10px;border-bottom:1px solid #e8edf2;text-align:center;"><span style="background:#d4edda;color:#155724;padding:4px 10px;border-radius:4px;font-size:11px;font-weight:600;">COMPLETE</span></td>
+                                    <td style="padding:10px;border-bottom:1px solid #e8edf2;color:#6c757d;font-size:12px;">2026-02-02T05:42:11.858Z</td>
+                                    <td style="padding:10px;border-bottom:1px solid #e8edf2;color:#6c757d;font-size:12px;">2026-02-02T05:42:20.325Z</td>
+                                </tr>
+
+                                <tr>
+                                    <td style="padding:10px;border-bottom:1px solid #e8edf2;font-family:monospace;font-size:12px;color:#495057;">a4999a40-322d-4523-aa4c-...</td>
+                                    <td style="padding:10px;border-bottom:1px solid #e8edf2;text-align:center;"><span style="background:#d4edda;color:#155724;padding:4px 10px;border-radius:4px;font-size:11px;font-weight:600;">COMPLETE</span></td>
+                                    <td style="padding:10px;border-bottom:1px solid #e8edf2;color:#6c757d;font-size:12px;">2026-02-02T05:44:00.208Z</td>
+                                    <td style="padding:10px;border-bottom:1px solid #e8edf2;color:#6c757d;font-size:12px;">2026-02-02T05:44:04.833Z</td>
+                                </tr>
+
+                                <tr>
+                                    <td style="padding:10px;border-bottom:1px solid #e8edf2;font-family:monospace;font-size:12px;color:#495057;">9737811f-3a2c-49bc-a6aa-...</td>
+                                    <td style="padding:10px;border-bottom:1px solid #e8edf2;text-align:center;"><span style="background:#d4edda;color:#155724;padding:4px 10px;border-radius:4px;font-size:11px;font-weight:600;">COMPLETE</span></td>
+                                    <td style="padding:10px;border-bottom:1px solid #e8edf2;color:#6c757d;font-size:12px;">2026-02-02T05:47:47.078Z</td>
+                                    <td style="padding:10px;border-bottom:1px solid #e8edf2;color:#6c757d;font-size:12px;">2026-02-02T05:47:57.434Z</td>
+                                </tr>
+
+                                <tr>
+                                    <td style="padding:10px;border-bottom:1px solid #e8edf2;font-family:monospace;font-size:12px;color:#495057;">dfdd0e31-5686-40d2-9c9f-...</td>
+                                    <td style="padding:10px;border-bottom:1px solid #e8edf2;text-align:center;"><span style="background:#d4edda;color:#155724;padding:4px 10px;border-radius:4px;font-size:11px;font-weight:600;">COMPLETE</span></td>
+                                    <td style="padding:10px;border-bottom:1px solid #e8edf2;color:#6c757d;font-size:12px;">2026-02-02T06:38:10.010Z</td>
+                                    <td style="padding:10px;border-bottom:1px solid #e8edf2;color:#6c757d;font-size:12px;">2026-02-02T06:38:29.116Z</td>
+                                </tr>
+
+                                <tr>
+                                    <td style="padding:10px;border-bottom:1px solid #e8edf2;font-family:monospace;font-size:12px;color:#495057;">0c340306-f113-4fdb-96b1-...</td>
+                                    <td style="padding:10px;border-bottom:1px solid #e8edf2;text-align:center;"><span style="background:#d4edda;color:#155724;padding:4px 10px;border-radius:4px;font-size:11px;font-weight:600;">COMPLETE</span></td>
+                                    <td style="padding:10px;border-bottom:1px solid #e8edf2;color:#6c757d;font-size:12px;">2026-02-02T06:42:12.099Z</td>
+                                    <td style="padding:10px;border-bottom:1px solid #e8edf2;color:#6c757d;font-size:12px;">2026-02-02T06:42:30.314Z</td>
+                                </tr>
+
+                                <tr>
+                                    <td style="padding:10px;border-bottom:1px solid #e8edf2;font-family:monospace;font-size:12px;color:#495057;">639fbc6e-556f-4a54-aa22-...</td>
+                                    <td style="padding:10px;border-bottom:1px solid #e8edf2;text-align:center;"><span style="background:#d4edda;color:#155724;padding:4px 10px;border-radius:4px;font-size:11px;font-weight:600;">COMPLETE</span></td>
+                                    <td style="padding:10px;border-bottom:1px solid #e8edf2;color:#6c757d;font-size:12px;">2026-02-02T06:43:36.891Z</td>
+                                    <td style="padding:10px;border-bottom:1px solid #e8edf2;color:#6c757d;font-size:12px;">2026-02-02T06:43:48.355Z</td>
+                                </tr>
+
+                                <tr>
+                                    <td style="padding:10px;border-bottom:1px solid #e8edf2;font-family:monospace;font-size:12px;color:#495057;">f76a837d-aaf9-47d3-8a68-...</td>
+                                    <td style="padding:10px;border-bottom:1px solid #e8edf2;text-align:center;"><span style="background:#d4edda;color:#155724;padding:4px 10px;border-radius:4px;font-size:11px;font-weight:600;">COMPLETE</span></td>
+                                    <td style="padding:10px;border-bottom:1px solid #e8edf2;color:#6c757d;font-size:12px;">2026-02-02T06:44:50.376Z</td>
+                                    <td style="padding:10px;border-bottom:1px solid #e8edf2;color:#6c757d;font-size:12px;">2026-02-02T06:45:13.724Z</td>
+                                </tr>
+
+                                <tr>
+                                    <td style="padding:10px;border-bottom:1px solid #e8edf2;font-family:monospace;font-size:12px;color:#495057;">f6f2ef62-c99a-47ae-9183-...</td>
+                                    <td style="padding:10px;border-bottom:1px solid #e8edf2;text-align:center;"><span style="background:#d4edda;color:#155724;padding:4px 10px;border-radius:4px;font-size:11px;font-weight:600;">COMPLETE</span></td>
+                                    <td style="padding:10px;border-bottom:1px solid #e8edf2;color:#6c757d;font-size:12px;">2026-02-02T09:53:13.413Z</td>
+                                    <td style="padding:10px;border-bottom:1px solid #e8edf2;color:#6c757d;font-size:12px;">2026-02-02T09:53:20.970Z</td>
+                                </tr>
+
+                                <tr>
+                                    <td style="padding:10px;border-bottom:1px solid #e8edf2;font-family:monospace;font-size:12px;color:#495057;">0400dd58-1765-4cbd-80a7-...</td>
+                                    <td style="padding:10px;border-bottom:1px solid #e8edf2;text-align:center;"><span style="background:#d4edda;color:#155724;padding:4px 10px;border-radius:4px;font-size:11px;font-weight:600;">COMPLETE</span></td>
+                                    <td style="padding:10px;border-bottom:1px solid #e8edf2;color:#6c757d;font-size:12px;">2026-02-02T09:53:58.523Z</td>
+                                    <td style="padding:10px;border-bottom:1px solid #e8edf2;color:#6c757d;font-size:12px;">2026-02-02T09:54:07.206Z</td>
+                                </tr>
+
+                                <tr>
+                                    <td style="padding:10px;border-bottom:1px solid #e8edf2;font-family:monospace;font-size:12px;color:#495057;">a2fa795b-1f85-47b3-8bec-...</td>
+                                    <td style="padding:10px;border-bottom:1px solid #e8edf2;text-align:center;"><span style="background:#d4edda;color:#155724;padding:4px 10px;border-radius:4px;font-size:11px;font-weight:600;">COMPLETE</span></td>
+                                    <td style="padding:10px;border-bottom:1px solid #e8edf2;color:#6c757d;font-size:12px;">2026-02-02T09:55:57.531Z</td>
+                                    <td style="padding:10px;border-bottom:1px solid #e8edf2;color:#6c757d;font-size:12px;">2026-02-02T09:56:17.649Z</td>
+                                </tr>
+
+                                <tr>
+                                    <td style="padding:10px;border-bottom:1px solid #e8edf2;font-family:monospace;font-size:12px;color:#495057;">1a5e8437-668f-487e-947d-...</td>
+                                    <td style="padding:10px;border-bottom:1px solid #e8edf2;text-align:center;"><span style="background:#d4edda;color:#155724;padding:4px 10px;border-radius:4px;font-size:11px;font-weight:600;">COMPLETE</span></td>
+                                    <td style="padding:10px;border-bottom:1px solid #e8edf2;color:#6c757d;font-size:12px;">2026-02-02T11:27:51.001Z</td>
+                                    <td style="padding:10px;border-bottom:1px solid #e8edf2;color:#6c757d;font-size:12px;">2026-02-02T11:27:51.024Z</td>
+                                </tr>
+
+                                <tr>
+                                    <td style="padding:10px;border-bottom:1px solid #e8edf2;font-family:monospace;font-size:12px;color:#495057;">34f41581-c340-43b4-94f8-...</td>
+                                    <td style="padding:10px;border-bottom:1px solid #e8edf2;text-align:center;"><span style="background:#d4edda;color:#155724;padding:4px 10px;border-radius:4px;font-size:11px;font-weight:600;">COMPLETE</span></td>
+                                    <td style="padding:10px;border-bottom:1px solid #e8edf2;color:#6c757d;font-size:12px;">2026-02-02T11:28:53.873Z</td>
+                                    <td style="padding:10px;border-bottom:1px solid #e8edf2;color:#6c757d;font-size:12px;">2026-02-02T11:28:53.888Z</td>
+                                </tr>
+
+                                <tr>
+                                    <td style="padding:10px;border-bottom:1px solid #e8edf2;font-family:monospace;font-size:12px;color:#495057;">3be512fb-b4c1-43bc-be9d-...</td>
+                                    <td style="padding:10px;border-bottom:1px solid #e8edf2;text-align:center;"><span style="background:#d4edda;color:#155724;padding:4px 10px;border-radius:4px;font-size:11px;font-weight:600;">COMPLETE</span></td>
+                                    <td style="padding:10px;border-bottom:1px solid #e8edf2;color:#6c757d;font-size:12px;">2026-02-02T11:30:22.300Z</td>
+                                    <td style="padding:10px;border-bottom:1px solid #e8edf2;color:#6c757d;font-size:12px;">2026-02-02T11:30:27.090Z</td>
+                                </tr>
+
+                                <tr>
+                                    <td style="padding:10px;border-bottom:1px solid #e8edf2;font-family:monospace;font-size:12px;color:#495057;">5ca0ccd7-0b24-4940-8b8f-...</td>
+                                    <td style="padding:10px;border-bottom:1px solid #e8edf2;text-align:center;"><span style="background:#d4edda;color:#155724;padding:4px 10px;border-radius:4px;font-size:11px;font-weight:600;">COMPLETE</span></td>
+                                    <td style="padding:10px;border-bottom:1px solid #e8edf2;color:#6c757d;font-size:12px;">2026-02-02T11:35:30.393Z</td>
+                                    <td style="padding:10px;border-bottom:1px solid #e8edf2;color:#6c757d;font-size:12px;">2026-02-02T11:35:46.570Z</td>
+                                </tr>
+
+                            </table>
+                        </td>
+                    </tr>
+
+                    <!-- Sessions Section -->
+                    <tr>
+                        <td style="padding:30px 30px 10px 30px;">
+                            <h2 style="margin:0 0 20px 0;color:#2c3e50;font-size:20px;font-weight:600;border-bottom:2px solid #e8edf2;padding-bottom:10px;">
+                                💬 会话情况
+                            </h2>
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td style="padding:0 30px;">
+                            <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+                                <tr>
+                                    <td width="33%" style="padding:10px;">
+                                        <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background:linear-gradient(135deg, #667eea 0%, #764ba2 100%);border-radius:8px;padding:20px;text-align:center;">
+                                            <tr>
+                                                <td>
+                                                    <div style="font-size:36px;font-weight:700;color:#ffffff;margin-bottom:5px;">1</div>
+                                                    <div style="font-size:13px;color:rgba(255,255,255,0.9);">总会话数</div>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td width="33%" style="padding:10px;">
+                                        <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background:linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);border-radius:8px;padding:20px;text-align:center;">
+                                            <tr>
+                                                <td>
+                                                    <div style="font-size:36px;font-weight:700;color:#ffffff;margin-bottom:5px;">0</div>
+                                                    <div style="font-size:13px;color:rgba(255,255,255,0.9);">活跃会话</div>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td width="33%" style="padding:10px;">
+                                        <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background:linear-gradient(135deg, #fa709a 0%, #fee140 100%);border-radius:8px;padding:20px;text-align:center;">
+                                            <tr>
+                                                <td>
+                                                    <div style="font-size:36px;font-weight:700;color:#ffffff;margin-bottom:5px;">0</div>
+                                                    <div style="font-size:13px;color:rgba(255,255,255,0.9);">已关闭</div>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td style="padding:20px 30px 10px 30px;">
+                            <h3 style="margin:0;color:#2c3e50;font-size:16px;font-weight:600;">最近会话 (最后 20 条)</h3>
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td style="padding:0 30px 20px 30px;">
+                            <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background:#ffffff;border:1px solid #e8edf2;border-radius:8px;overflow:hidden;">
+                                <tr style="background:#f8f9fa;">
+                                    <th style="padding:12px;text-align:left;color:#2c3e50;font-size:13px;font-weight:600;border-bottom:2px solid #e8edf2;">会话 ID</th>
+                                    <th style="padding:12px;text-align:center;color:#2c3e50;font-size:13px;font-weight:600;border-bottom:2px solid #e8edf2;">状态</th>
+                                    <th style="padding:12px;text-align:left;color:#2c3e50;font-size:13px;font-weight:600;border-bottom:2px solid #e8edf2;">开始时间</th>
+                                </tr>
+
+                                <tr>
+                                    <td style="padding:10px;border-bottom:1px solid #e8edf2;font-family:monospace;font-size:12px;color:#495057;">d0685b80-d6a0-4bee-86f7-...</td>
+                                    <td style="padding:10px;border-bottom:1px solid #e8edf2;text-align:center;"><span style="background:#e2e3e5;color:#383d41;padding:4px 10px;border-radius:4px;font-size:11px;font-weight:600;">UNKNOWN</span></td>
+                                    <td style="padding:10px;border-bottom:1px solid #e8edf2;color:#6c757d;font-size:12px;">2026-02-02T01:19:05.139Z</td>
+                                </tr>
+
+                            </table>
+                        </td>
+                    </tr>
+
+                    <!-- Errors Section -->
+                    <tr>
+                        <td style="padding:30px 30px 10px 30px;">
+                            <h2 style="margin:0 0 20px 0;color:#2c3e50;font-size:20px;font-weight:600;border-bottom:2px solid #e8edf2;padding-bottom:10px;">
+                                ⚠️ 错误警告
+                            </h2>
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td style="padding:0 30px 20px 30px;">
+                            <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background:#fff3cd;border-left:4px solid #ffc107;border-radius:6px;padding:15px;">
+                                <tr>
+                                    <td>
+                                        <p style="margin:0;color:#856404;font-size:14px;">
+                                            <strong>总错误数:</strong> 160
+                                        </p>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td style="padding:0 30px 20px 30px;">
+                            <h3 style="margin:0 0 15px 0;color:#2c3e50;font-size:16px;font-weight:600;">常见错误 (Top 10)</h3>
+
+                            <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background:#fff9c4;border-left:4px solid #fbc02d;border-radius:6px;padding:12px;margin-bottom:10px;">
+                                <tr>
+                                    <td>
+                                        <div style="color:#f57f17;font-weight:600;font-size:13px;margin-bottom:3px;">
+                                            🔴 出现 15 次
+                                        </div>
+                                        <div style="color:#333;font-size:13px;line-height:1.5;">
+                                            [openclaw] Non-fatal unhandled rejection (continuing): TypeE
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background:#fff9c4;border-left:4px solid #fbc02d;border-radius:6px;padding:12px;margin-bottom:10px;">
+                                <tr>
+                                    <td>
+                                        <div style="color:#f57f17;font-weight:600;font-size:13px;margin-bottom:3px;">
+                                            🔴 出现 4 次
+                                        </div>
+                                        <div style="color:#333;font-size:13px;line-height:1.5;">
+                                            [38;5;167m[tools] exec failed: zsh:1: no matches found: /Us
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background:#fff9c4;border-left:4px solid #fbc02d;border-radius:6px;padding:12px;margin-bottom:10px;">
+                                <tr>
+                                    <td>
+                                        <div style="color:#f57f17;font-weight:600;font-size:13px;margin-bottom:3px;">
+                                            🔴 出现 4 次
+                                        </div>
+                                        <div style="color:#333;font-size:13px;line-height:1.5;">
+                                            [tools] exec failed: zsh:1: no matches found: /Users/jaceho/
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background:#fff9c4;border-left:4px solid #fbc02d;border-radius:6px;padding:12px;margin-bottom:10px;">
+                                <tr>
+                                    <td>
+                                        <div style="color:#f57f17;font-weight:600;font-size:13px;margin-bottom:3px;">
+                                            🔴 出现 3 次
+                                        </div>
+                                        <div style="color:#333;font-size:13px;line-height:1.5;">
+                                            {"subsystem":"gateway/channels/telegram"} [38;5;167mtelegra
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background:#fff9c4;border-left:4px solid #fbc02d;border-radius:6px;padding:12px;margin-bottom:10px;">
+                                <tr>
+                                    <td>
+                                        <div style="color:#f57f17;font-weight:600;font-size:13px;margin-bottom:3px;">
+                                            🔴 出现 1 次
+                                        </div>
+                                        <div style="color:#333;font-size:13px;line-height:1.5;">
+                                            {"subsystem":"gateway/channels/telegram"} telegram setMyComm
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background:#fff9c4;border-left:4px solid #fbc02d;border-radius:6px;padding:12px;margin-bottom:10px;">
+                                <tr>
+                                    <td>
+                                        <div style="color:#f57f17;font-weight:600;font-size:13px;margin-bottom:3px;">
+                                            🔴 出现 1 次
+                                        </div>
+                                        <div style="color:#333;font-size:13px;line-height:1.5;">
+                                            [38;5;138mRPC probe:[39m [38;5;167mfailed[39m
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background:#fff9c4;border-left:4px solid #fbc02d;border-radius:6px;padding:12px;margin-bottom:10px;">
+                                <tr>
+                                    <td>
+                                        <div style="color:#f57f17;font-weight:600;font-size:13px;margin-bottom:3px;">
+                                            🔴 出现 1 次
+                                        </div>
+                                        <div style="color:#333;font-size:13px;line-height:1.5;">
+                                            [38;5;138mRPC target:[39m ws://127.0.0.1:18789
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background:#fff9c4;border-left:4px solid #fbc02d;border-radius:6px;padding:12px;margin-bottom:10px;">
+                                <tr>
+                                    <td>
+                                        <div style="color:#f57f17;font-weight:600;font-size:13px;margin-bottom:3px;">
+                                            🔴 出现 1 次
+                                        </div>
+                                        <div style="color:#333;font-size:13px;line-height:1.5;">
+                                              [38;5;167mgateway closed (1006 abnormal closure (no close
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background:#fff9c4;border-left:4px solid #fbc02d;border-radius:6px;padding:12px;margin-bottom:10px;">
+                                <tr>
+                                    <td>
+                                        <div style="color:#f57f17;font-weight:600;font-size:13px;margin-bottom:3px;">
+                                            🔴 出现 1 次
+                                        </div>
+                                        <div style="color:#333;font-size:13px;line-height:1.5;">
+                                              [38;5;167mGateway target: ws://127.0.0.1:18789[39m
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background:#fff9c4;border-left:4px solid #fbc02d;border-radius:6px;padding:12px;margin-bottom:10px;">
+                                <tr>
+                                    <td>
+                                        <div style="color:#f57f17;font-weight:600;font-size:13px;margin-bottom:3px;">
+                                            🔴 出现 1 次
+                                        </div>
+                                        <div style="color:#333;font-size:13px;line-height:1.5;">
+                                              [38;5;167mSource: cli --url[39m
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+
+                        </td>
+                    </tr>
+
+                    <!-- Events Section -->
+                    <tr>
+                        <td style="padding:30px 30px 10px 30px;">
+                            <h2 style="margin:0 0 20px 0;color:#2c3e50;font-size:20px;font-weight:600;border-bottom:2px solid #e8edf2;padding-bottom:10px;">
+                                📋 最近事件 (最后 20 条)
+                            </h2>
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td style="padding:0 30px 20px 30px;">
+
+                            <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background:#f8f9fa;border-left:4px solid #2196f3;border-radius:6px;padding:12px;margin-bottom:10px;">
+                                <tr>
+                                    <td>
+                                        <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+                                            <tr>
+                                                <td style="color:#6c757d;font-size:12px;">2026-02-02T11:35:26.650Z</td>
+                                                <td align="right">
+                                                    <span style="background:#e0e0e0;padding:2px 8px;border-radius:3px;font-size:11px;color:#2c3e50;">session_event</span>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                        <div style="margin-top:8px;color:#333;font-size:13px;line-height:1.5;">
+                                            <strong>{"subsystem":"diagnostic"}:</strong> {"subsystem":"diagnostic"} lane enqueue: lane=session:agent:main:main queueSize=1
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background:#f8f9fa;border-left:4px solid #2196f3;border-radius:6px;padding:12px;margin-bottom:10px;">
+                                <tr>
+                                    <td>
+                                        <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+                                            <tr>
+                                                <td style="color:#6c757d;font-size:12px;">2026-02-02T11:35:26.653Z</td>
+                                                <td align="right">
+                                                    <span style="background:#e0e0e0;padding:2px 8px;border-radius:3px;font-size:11px;color:#2c3e50;">session_event</span>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                        <div style="margin-top:8px;color:#333;font-size:13px;line-height:1.5;">
+                                            <strong>{"subsystem":"diagnostic"}:</strong> {"subsystem":"diagnostic"} lane dequeue: lane=session:agent:main:main waitMs=10 queueSize=0
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background:#f8f9fa;border-left:4px solid #2196f3;border-radius:6px;padding:12px;margin-bottom:10px;">
+                                <tr>
+                                    <td>
+                                        <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+                                            <tr>
+                                                <td style="color:#6c757d;font-size:12px;">2026-02-02T11:35:26.654Z</td>
+                                                <td align="right">
+                                                    <span style="background:#e0e0e0;padding:2px 8px;border-radius:3px;font-size:11px;color:#2c3e50;">other</span>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                        <div style="margin-top:8px;color:#333;font-size:13px;line-height:1.5;">
+                                            <strong>{"subsystem":"diagnostic"}:</strong> {"subsystem":"diagnostic"} lane enqueue: lane=main queueSize=1
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background:#f8f9fa;border-left:4px solid #2196f3;border-radius:6px;padding:12px;margin-bottom:10px;">
+                                <tr>
+                                    <td>
+                                        <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+                                            <tr>
+                                                <td style="color:#6c757d;font-size:12px;">2026-02-02T11:35:26.655Z</td>
+                                                <td align="right">
+                                                    <span style="background:#e0e0e0;padding:2px 8px;border-radius:3px;font-size:11px;color:#2c3e50;">other</span>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                        <div style="margin-top:8px;color:#333;font-size:13px;line-height:1.5;">
+                                            <strong>{"subsystem":"diagnostic"}:</strong> {"subsystem":"diagnostic"} lane dequeue: lane=main waitMs=0 queueSize=0
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background:#f8f9fa;border-left:4px solid #2196f3;border-radius:6px;padding:12px;margin-bottom:10px;">
+                                <tr>
+                                    <td>
+                                        <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+                                            <tr>
+                                                <td style="color:#6c757d;font-size:12px;">2026-02-02T11:35:27.183Z</td>
+                                                <td align="right">
+                                                    <span style="background:#e0e0e0;padding:2px 8px;border-radius:3px;font-size:11px;color:#2c3e50;">run_start</span>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                        <div style="margin-top:8px;color:#333;font-size:13px;line-height:1.5;">
+                                            <strong>{"subsystem":"agent/embedded"}:</strong> {"subsystem":"agent/embedded"} embedded run start: runId=5ca0ccd7-0b24-4940-8b8f-11a9edd187f7 sessio...
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background:#f8f9fa;border-left:4px solid #2196f3;border-radius:6px;padding:12px;margin-bottom:10px;">
+                                <tr>
+                                    <td>
+                                        <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+                                            <tr>
+                                                <td style="color:#6c757d;font-size:12px;">2026-02-02T11:35:27.264Z</td>
+                                                <td align="right">
+                                                    <span style="background:#e0e0e0;padding:2px 8px;border-radius:3px;font-size:11px;color:#2c3e50;">session_state</span>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                        <div style="margin-top:8px;color:#333;font-size:13px;line-height:1.5;">
+                                            <strong>{"subsystem":"diagnostic"}:</strong> {"subsystem":"diagnostic"} session state: sessionId=d0685b80-d6a0-4bee-86f7-267431c6d87c sessionKey=...
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background:#f8f9fa;border-left:4px solid #2196f3;border-radius:6px;padding:12px;margin-bottom:10px;">
+                                <tr>
+                                    <td>
+                                        <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+                                            <tr>
+                                                <td style="color:#6c757d;font-size:12px;">2026-02-02T11:35:27.265Z</td>
+                                                <td align="right">
+                                                    <span style="background:#e0e0e0;padding:2px 8px;border-radius:3px;font-size:11px;color:#2c3e50;">session_event</span>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                        <div style="margin-top:8px;color:#333;font-size:13px;line-height:1.5;">
+                                            <strong>{"subsystem":"diagnostic"}:</strong> {"subsystem":"diagnostic"} run registered: sessionId=d0685b80-d6a0-4bee-86f7-267431c6d87c totalActiv...
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background:#f8f9fa;border-left:4px solid #2196f3;border-radius:6px;padding:12px;margin-bottom:10px;">
+                                <tr>
+                                    <td>
+                                        <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+                                            <tr>
+                                                <td style="color:#6c757d;font-size:12px;">2026-02-02T11:35:27.266Z</td>
+                                                <td align="right">
+                                                    <span style="background:#e0e0e0;padding:2px 8px;border-radius:3px;font-size:11px;color:#2c3e50;">run_start</span>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                        <div style="margin-top:8px;color:#333;font-size:13px;line-height:1.5;">
+                                            <strong>{"subsystem":"agent/embedded"}:</strong> {"subsystem":"agent/embedded"} embedded run prompt start: runId=5ca0ccd7-0b24-4940-8b8f-11a9edd187f7...
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background:#f8f9fa;border-left:4px solid #2196f3;border-radius:6px;padding:12px;margin-bottom:10px;">
+                                <tr>
+                                    <td>
+                                        <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+                                            <tr>
+                                                <td style="color:#6c757d;font-size:12px;">2026-02-02T11:35:27.268Z</td>
+                                                <td align="right">
+                                                    <span style="background:#e0e0e0;padding:2px 8px;border-radius:3px;font-size:11px;color:#2c3e50;">run_start</span>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                        <div style="margin-top:8px;color:#333;font-size:13px;line-height:1.5;">
+                                            <strong>{"subsystem":"agent/embedded"}:</strong> {"subsystem":"agent/embedded"} embedded run agent start: runId=5ca0ccd7-0b24-4940-8b8f-11a9edd187f7
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background:#f8f9fa;border-left:4px solid #2196f3;border-radius:6px;padding:12px;margin-bottom:10px;">
+                                <tr>
+                                    <td>
+                                        <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+                                            <tr>
+                                                <td style="color:#6c757d;font-size:12px;">2026-02-02T11:35:30.393Z</td>
+                                                <td align="right">
+                                                    <span style="background:#e0e0e0;padding:2px 8px;border-radius:3px;font-size:11px;color:#2c3e50;">run_start</span>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                        <div style="margin-top:8px;color:#333;font-size:13px;line-height:1.5;">
+                                            <strong>{"subsystem":"agent/embedded"}:</strong> {"subsystem":"agent/embedded"} embedded run tool start: runId=5ca0ccd7-0b24-4940-8b8f-11a9edd187f7 t...
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background:#f8f9fa;border-left:4px solid #2196f3;border-radius:6px;padding:12px;margin-bottom:10px;">
+                                <tr>
+                                    <td>
+                                        <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+                                            <tr>
+                                                <td style="color:#6c757d;font-size:12px;">2026-02-02T11:35:42.749Z</td>
+                                                <td align="right">
+                                                    <span style="background:#e0e0e0;padding:2px 8px;border-radius:3px;font-size:11px;color:#2c3e50;">run_event</span>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                        <div style="margin-top:8px;color:#333;font-size:13px;line-height:1.5;">
+                                            <strong>{"subsystem":"agent/embedded"}:</strong> {"subsystem":"agent/embedded"} embedded run tool end: runId=5ca0ccd7-0b24-4940-8b8f-11a9edd187f7 too...
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background:#f8f9fa;border-left:4px solid #2196f3;border-radius:6px;padding:12px;margin-bottom:10px;">
+                                <tr>
+                                    <td>
+                                        <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+                                            <tr>
+                                                <td style="color:#6c757d;font-size:12px;">2026-02-02T11:35:46.500Z</td>
+                                                <td align="right">
+                                                    <span style="background:#e0e0e0;padding:2px 8px;border-radius:3px;font-size:11px;color:#2c3e50;">run_event</span>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                        <div style="margin-top:8px;color:#333;font-size:13px;line-height:1.5;">
+                                            <strong>{"subsystem":"agent/embedded"}:</strong> {"subsystem":"agent/embedded"} embedded run agent end: runId=5ca0ccd7-0b24-4940-8b8f-11a9edd187f7
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background:#f8f9fa;border-left:4px solid #2196f3;border-radius:6px;padding:12px;margin-bottom:10px;">
+                                <tr>
+                                    <td>
+                                        <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+                                            <tr>
+                                                <td style="color:#6c757d;font-size:12px;">2026-02-02T11:35:46.544Z</td>
+                                                <td align="right">
+                                                    <span style="background:#e0e0e0;padding:2px 8px;border-radius:3px;font-size:11px;color:#2c3e50;">run_event</span>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                        <div style="margin-top:8px;color:#333;font-size:13px;line-height:1.5;">
+                                            <strong>{"subsystem":"agent/embedded"}:</strong> {"subsystem":"agent/embedded"} embedded run prompt end: runId=5ca0ccd7-0b24-4940-8b8f-11a9edd187f7 s...
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background:#f8f9fa;border-left:4px solid #2196f3;border-radius:6px;padding:12px;margin-bottom:10px;">
+                                <tr>
+                                    <td>
+                                        <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+                                            <tr>
+                                                <td style="color:#6c757d;font-size:12px;">2026-02-02T11:35:46.554Z</td>
+                                                <td align="right">
+                                                    <span style="background:#e0e0e0;padding:2px 8px;border-radius:3px;font-size:11px;color:#2c3e50;">session_state</span>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                        <div style="margin-top:8px;color:#333;font-size:13px;line-height:1.5;">
+                                            <strong>{"subsystem":"diagnostic"}:</strong> {"subsystem":"diagnostic"} session state: sessionId=d0685b80-d6a0-4bee-86f7-267431c6d87c sessionKey=...
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background:#f8f9fa;border-left:4px solid #2196f3;border-radius:6px;padding:12px;margin-bottom:10px;">
+                                <tr>
+                                    <td>
+                                        <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+                                            <tr>
+                                                <td style="color:#6c757d;font-size:12px;">2026-02-02T11:35:46.560Z</td>
+                                                <td align="right">
+                                                    <span style="background:#e0e0e0;padding:2px 8px;border-radius:3px;font-size:11px;color:#2c3e50;">session_event</span>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                        <div style="margin-top:8px;color:#333;font-size:13px;line-height:1.5;">
+                                            <strong>{"subsystem":"diagnostic"}:</strong> {"subsystem":"diagnostic"} run cleared: sessionId=d0685b80-d6a0-4bee-86f7-267431c6d87c totalActive=0
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background:#f8f9fa;border-left:4px solid #2196f3;border-radius:6px;padding:12px;margin-bottom:10px;">
+                                <tr>
+                                    <td>
+                                        <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+                                            <tr>
+                                                <td style="color:#6c757d;font-size:12px;">2026-02-02T11:35:46.570Z</td>
+                                                <td align="right">
+                                                    <span style="background:#e0e0e0;padding:2px 8px;border-radius:3px;font-size:11px;color:#2c3e50;">run_complete</span>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                        <div style="margin-top:8px;color:#333;font-size:13px;line-height:1.5;">
+                                            <strong>{"subsystem":"agent/embedded"}:</strong> {"subsystem":"agent/embedded"} embedded run done: runId=5ca0ccd7-0b24-4940-8b8f-11a9edd187f7 session...
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background:#f8f9fa;border-left:4px solid #2196f3;border-radius:6px;padding:12px;margin-bottom:10px;">
+                                <tr>
+                                    <td>
+                                        <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+                                            <tr>
+                                                <td style="color:#6c757d;font-size:12px;">2026-02-02T11:35:47.038Z</td>
+                                                <td align="right">
+                                                    <span style="background:#e0e0e0;padding:2px 8px;border-radius:3px;font-size:11px;color:#2c3e50;">gateway_event</span>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                        <div style="margin-top:8px;color:#333;font-size:13px;line-height:1.5;">
+                                            <strong>{"subsystem":"gateway/ws"}:</strong> {"subsystem":"gateway/ws"} [93m⇄[39m [1mres[22m [92m✓[39m [1mchat.history[22m [2m226ms[22m...
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background:#f8f9fa;border-left:4px solid #2196f3;border-radius:6px;padding:12px;margin-bottom:10px;">
+                                <tr>
+                                    <td>
+                                        <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+                                            <tr>
+                                                <td style="color:#6c757d;font-size:12px;">2026-02-02T11:35:47.227Z</td>
+                                                <td align="right">
+                                                    <span style="background:#e0e0e0;padding:2px 8px;border-radius:3px;font-size:11px;color:#2c3e50;">gateway_event</span>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                        <div style="margin-top:8px;color:#333;font-size:13px;line-height:1.5;">
+                                            <strong>{"subsystem":"gateway/ws"}:</strong> {"subsystem":"gateway/ws"} [93m⇄[39m [1mres[22m [92m✓[39m [1mnode.list[22m [2m152ms[22m [...
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background:#f8f9fa;border-left:4px solid #2196f3;border-radius:6px;padding:12px;margin-bottom:10px;">
+                                <tr>
+                                    <td>
+                                        <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+                                            <tr>
+                                                <td style="color:#6c757d;font-size:12px;">2026-02-02T11:35:47.235Z</td>
+                                                <td align="right">
+                                                    <span style="background:#e0e0e0;padding:2px 8px;border-radius:3px;font-size:11px;color:#2c3e50;">other</span>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                        <div style="margin-top:8px;color:#333;font-size:13px;line-height:1.5;">
+                                            <strong>{"subsystem":"diagnostic"}:</strong> {"subsystem":"diagnostic"} lane task done: lane=main durationMs=20580 active=0 queued=0
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background:#f8f9fa;border-left:4px solid #2196f3;border-radius:6px;padding:12px;margin-bottom:10px;">
+                                <tr>
+                                    <td>
+                                        <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+                                            <tr>
+                                                <td style="color:#6c757d;font-size:12px;">2026-02-02T11:35:47.236Z</td>
+                                                <td align="right">
+                                                    <span style="background:#e0e0e0;padding:2px 8px;border-radius:3px;font-size:11px;color:#2c3e50;">session_event</span>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                        <div style="margin-top:8px;color:#333;font-size:13px;line-height:1.5;">
+                                            <strong>{"subsystem":"diagnostic"}:</strong> {"subsystem":"diagnostic"} lane task done: lane=session:agent:main:main durationMs=20582 active=0 qu...
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+
+                        </td>
+                    </tr>
+
+                    <!-- Footer -->
+                    <tr>
+                        <td style="padding:30px;background:#f8f9fa;border-top:1px solid #e8edf2;text-align:center;">
+                            <p style="margin:0 0 5px 0;color:#6c757d;font-size:13px;">
+                                本报告由 <strong style="color:#667eea;">OpenClawMonitor</strong> 自动生成
+                            </p>
+                            <p style="margin:0;color:#95a5a6;font-size:12px;">
+                                © 2026 OpenClaw 系统监控
+                            </p>
+                        </td>
+                    </tr>
+                    
+                </table>
+            </td>
+        </tr>
+    </table>
+    
+</body>
+</html>

@@ -1,0 +1,29 @@
+# OpenClaw 监控程序配置文件
+
+# 基础设置
+base_path: /Users/jaceho/.openclaw
+debug_mode: false
+
+# 日志路径配置
+log_paths:
+  paths:
+    - /tmp/openclaw/
+    - /private/tmp/openclaw/
+    - /Users/jaceho/.openclaw/logs/
+    - /Users/jaceho/.openclaw/workspace/logs/
+    - ~/Library/Logs/OpenClaw/
+  diagnostics_log: ~/Library/Logs/OpenClaw/diagnostics.jsonl
+
+# 数据库配置
+database:
+  db_path: database/openclaw_monitor.db
+  enable_logging: true
+
+# 邮件配置
+email:
+  smtp_server: smtp.gmail.com
+  smtp_port: 587
+  sender_email: your_email@gmail.com
+  sender_password: your_app_password  # 使用 Gmail 应用专用密码
+  recipient_email: your_email@gmail.com
+  use_encryption: true

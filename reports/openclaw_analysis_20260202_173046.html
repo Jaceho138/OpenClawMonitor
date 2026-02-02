@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpenClaw 系统日志监控报告</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        header {
+            border-bottom: 3px solid #1976D2;
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+        h1 {
+            color: #1976D2;
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+        .header-meta {
+            font-size: 13px;
+            color: #999;
+        }
+        section {
+            margin-bottom: 40px;
+        }
+        h2 {
+            color: #1976D2;
+            font-size: 22px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #E0E0E0;
+        }
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        .stat-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .stat-card.success {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+        .stat-card.warning {
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+        }
+        .stat-card.error {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+        .stat-card .number {
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .stat-card .label {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th {
+            background: #F5F5F5;
+            padding: 12px;
+            text-align: left;
+            border-bottom: 2px solid #DDD;
+            font-weight: 600;
+            color: #333;
+        }
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #EEE;
+        }
+        tr:hover {
+            background: #FAFAFA;
+        }
+        .badge {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        .badge.running {
+            background: #E3F2FD;
+            color: #1976D2;
+        }
+        .badge.complete {
+            background: #E8F5E9;
+            color: #388E3C;
+        }
+        .badge.active {
+            background: #E8F5E9;
+            color: #388E3C;
+        }
+        .badge.inactive {
+            background: #FFF3E0;
+            color: #F57C00;
+        }
+        .error-item {
+            background: #FFF9C4;
+            border-left: 4px solid #FBC02D;
+            padding: 12px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+        }
+        .event-item {
+            background: #F5F5F5;
+            padding: 12px;
+            margin-bottom: 10px;
+            border-left: 4px solid #2196F3;
+            border-radius: 4px;
+        }
+        .event-time {
+            color: #999;
+            font-size: 12px;
+        }
+        .event-message {
+            margin-top: 5px;
+            color: #333;
+        }
+        footer {
+            border-top: 1px solid #EEE;
+            padding-top: 20px;
+            text-align: center;
+            color: #999;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <header>
+        <h1>📊 OpenClaw 系统日志监控报告</h1>
+        <div class="header-meta">
+            <p>分析时间: 2026-02-02T17:30:46.975270</p>
+        </div>
+    </header>
+
+    <section>
+        <h2>📈 概览</h2>
+        <div class="stat-grid">
+            <div class="stat-card">
+                <div class="number">363</div>
+                <div class="label">运行事件</div>
+            </div>
+            <div class="stat-card success">
+                <div class="number">46</div>
+                <div class="label">运行总数</div>
+            </div>
+            <div class="stat-card">
+                <div class="number">323</div>
+                <div class="label">会话数</div>
+            </div>
+            <div class="stat-card error">
+                <div class="number">143</div>
+                <div class="label">错误警告</div>
+            </div>
+            <div class="stat-card">
+                <div class="number">40</div>
+                <div class="label">API 调用</div>
+            </div>
+            <div class="stat-card warning">
+                <div class="number">90</div>
+                <div class="label">外部对话</div>
+            </div>
+        </div>
+        <p>
+            📅 时间范围: <strong>2026-02-02T01:10:40.079Z</strong> 至 <strong>2026-02-02T09:01:08.105Z</strong>
+        </p>
+        <p>
+            ✅ 日志处理: <strong>1180/1180</strong> 行成功解析
+        </p>
+    </section>
+
+    <section>
+        <h2>📊 详细统计</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>事件类型</th>
+                    <th style='text-align:center'>数量</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>other</td><td style='text-align:center'>371</td></tr><tr><td>session_event</td><td style='text-align:center'>231</td></tr><tr><td>run_start</td><td style='text-align:center'>187</td></tr><tr><td>run_event</td><td style='text-align:center'>130</td></tr><tr><td>session_state</td><td style='text-align:center'>92</td></tr><tr><td>gateway_event</td><td style='text-align:center'>83</td></tr><tr><td>run_complete</td><td style='text-align:center'>46</td></tr><tr><td>file_access</td><td style='text-align:center'>26</td></tr><tr><td>gateway_listening</td><td style='text-align:center'>8</td></tr><tr><td>gateway_mounted</td><td style='text-align:center'>4</td></tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section>
+        <h2>🔌 OpenClaw API 使用情况</h2>
+        <div class="stat-grid">
+            <div class="stat-card">
+                <div class="number">40</div>
+                <div class="label">API 调用次数</div>
+            </div>
+            <div class="stat-card error">
+                <div class="number">0</div>
+                <div class="label">API 错误次数</div>
+            </div>
+        </div>
+        <h3 style="margin-top: 20px; margin-bottom: 10px;">常见 API 方法</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>方法</th>
+                    <th style='text-align:center'>次数</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>node.list</td><td style='text-align:center'>13</td></tr><tr><td>chat.history</td><td style='text-align:center'>8</td></tr><tr><td>device.pair.list</td><td style='text-align:center'>4</td></tr><tr><td>status</td><td style='text-align:center'>4</td></tr><tr><td>channels.status</td><td style='text-align:center'>4</td></tr><tr><td>config.schema</td><td style='text-align:center'>3</td></tr><tr><td>skills.status</td><td style='text-align:center'>3</td></tr><tr><td>system-presence</td><td style='text-align:center'>1</td></tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section>
+        <h2>💬 外部对话数据</h2>
+        <div class="stat-grid">
+            <div class="stat-card warning">
+                <div class="number">90</div>
+                <div class="label">外部对话事件</div>
+            </div>
+        </div>
+        <h3 style="margin-top: 20px; margin-bottom: 10px;">渠道分布</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>渠道</th>
+                    <th style='text-align:center'>次数</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>telegram</td><td style='text-align:center'>59</td></tr><tr><td>webchat</td><td style='text-align:center'>18</td></tr><tr><td>telegram"}</td><td style='text-align:center'>9</td></tr><tr><td>signal</td><td style='text-align:center'>3</td></tr><tr><td>whatsapp</td><td style='text-align:center'>1</td></tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section>
+        <h2>🚀 运行情况</h2>
+        <div class="stat-grid">
+            <div class="stat-card">
+                <div class="number">46</div>
+                <div class="label">总运行数</div>
+            </div>
+            <div class="stat-card success">
+                <div class="number">46</div>
+                <div class="label">已完成</div>
+            </div>
+            <div class="stat-card warning">
+                <div class="number">0</div>
+                <div class="label">运行中</div>
+            </div>
+        </div>
+        
+        <h3 style="margin-top: 20px; margin-bottom: 10px;">最近运行</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>运行 ID</th>
+                    <th>状态</th>
+                    <th>开始时间</th>
+                    <th>完成时间</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                <tr>
+                    <td style="font-family: monospace; font-size: 12px;">188c400a-25df-41...</td>
+                    <td><span class="badge complete">COMPLETE</span></td>
+                    <td>2026-02-02T04:52:38.255Z</td>
+                    <td>2026-02-02T04:52:43.515Z</td>
+                </tr>
+
+                <tr>
+                    <td style="font-family: monospace; font-size: 12px;">ca68bc8f-93d3-41...</td>
+                    <td><span class="badge complete">COMPLETE</span></td>
+                    <td>2026-02-02T05:10:26.516Z</td>
+                    <td>2026-02-02T05:10:37.766Z</td>
+                </tr>
+
+                <tr>
+                    <td style="font-family: monospace; font-size: 12px;">9e9a2459-c970-4d...</td>
+                    <td><span class="badge complete">COMPLETE</span></td>
+                    <td>2026-02-02T05:17:19.156Z</td>
+                    <td>2026-02-02T05:17:31.921Z</td>
+                </tr>
+
+                <tr>
+                    <td style="font-family: monospace; font-size: 12px;">c89a1c4b-c325-45...</td>
+                    <td><span class="badge complete">COMPLETE</span></td>
+                    <td>2026-02-02T05:19:22.078Z</td>
+                    <td>2026-02-02T05:19:33.367Z</td>
+                </tr>
+
+                <tr>
+                    <td style="font-family: monospace; font-size: 12px;">a8b02d3b-02a8-48...</td>
+                    <td><span class="badge complete">COMPLETE</span></td>
+                    <td>2026-02-02T05:21:40.611Z</td>
+                    <td>2026-02-02T05:21:49.864Z</td>
+                </tr>
+
+                <tr>
+                    <td style="font-family: monospace; font-size: 12px;">c0b6a6f8-956a-4a...</td>
+                    <td><span class="badge complete">COMPLETE</span></td>
+                    <td>2026-02-02T05:24:04.727Z</td>
+                    <td>2026-02-02T05:24:10.964Z</td>
+                </tr>
+
+                <tr>
+                    <td style="font-family: monospace; font-size: 12px;">33d5a783-7ce1-47...</td>
+                    <td><span class="badge complete">COMPLETE</span></td>
+                    <td>2026-02-02T05:26:01.021Z</td>
+                    <td>2026-02-02T05:26:08.361Z</td>
+                </tr>
+
+                <tr>
+                    <td style="font-family: monospace; font-size: 12px;">6762ffde-61f6-4e...</td>
+                    <td><span class="badge complete">COMPLETE</span></td>
+                    <td>2026-02-02T05:28:34.212Z</td>
+                    <td>2026-02-02T05:28:49.266Z</td>
+                </tr>
+
+                <tr>
+                    <td style="font-family: monospace; font-size: 12px;">d33bf054-9186-46...</td>
+                    <td><span class="badge complete">COMPLETE</span></td>
+                    <td>2026-02-02T05:30:58.605Z</td>
+                    <td>2026-02-02T05:31:01.912Z</td>
+                </tr>
+
+                <tr>
+                    <td style="font-family: monospace; font-size: 12px;">4218363e-ecdf-49...</td>
+                    <td><span class="badge complete">COMPLETE</span></td>
+                    <td>2026-02-02T05:32:19.320Z</td>
+                    <td>2026-02-02T05:32:34.180Z</td>
+                </tr>
+
+                <tr>
+                    <td style="font-family: monospace; font-size: 12px;">4fb4ba15-8c21-44...</td>
+                    <td><span class="badge complete">COMPLETE</span></td>
+                    <td>2026-02-02T05:34:16.537Z</td>
+                    <td>2026-02-02T05:34:28.664Z</td>
+                </tr>
+
+                <tr>
+                    <td style="font-family: monospace; font-size: 12px;">42a1b0d7-d7f2-46...</td>
+                    <td><span class="badge complete">COMPLETE</span></td>
+                    <td>2026-02-02T05:36:37.384Z</td>
+                    <td>2026-02-02T05:36:46.980Z</td>
+                </tr>
+
+                <tr>
+                    <td style="font-family: monospace; font-size: 12px;">b88e6ce8-8081-43...</td>
+                    <td><span class="badge complete">COMPLETE</span></td>
+                    <td>2026-02-02T05:41:14.030Z</td>
+                    <td>2026-02-02T05:41:21.149Z</td>
+                </tr>
+
+                <tr>
+                    <td style="font-family: monospace; font-size: 12px;">6f2d1dc0-92f4-42...</td>
+                    <td><span class="badge complete">COMPLETE</span></td>
+                    <td>2026-02-02T05:42:11.858Z</td>
+                    <td>2026-02-02T05:42:20.325Z</td>
+                </tr>
+
+                <tr>
+                    <td style="font-family: monospace; font-size: 12px;">a4999a40-322d-45...</td>
+                    <td><span class="badge complete">COMPLETE</span></td>
+                    <td>2026-02-02T05:44:00.208Z</td>
+                    <td>2026-02-02T05:44:04.833Z</td>
+                </tr>
+
+                <tr>
+                    <td style="font-family: monospace; font-size: 12px;">9737811f-3a2c-49...</td>
+                    <td><span class="badge complete">COMPLETE</span></td>
+                    <td>2026-02-02T05:47:47.078Z</td>
+                    <td>2026-02-02T05:47:57.434Z</td>
+                </tr>
+
+                <tr>
+                    <td style="font-family: monospace; font-size: 12px;">dfdd0e31-5686-40...</td>
+                    <td><span class="badge complete">COMPLETE</span></td>
+                    <td>2026-02-02T06:38:10.010Z</td>
+                    <td>2026-02-02T06:38:29.116Z</td>
+                </tr>
+
+                <tr>
+                    <td style="font-family: monospace; font-size: 12px;">0c340306-f113-4f...</td>
+                    <td><span class="badge complete">COMPLETE</span></td>
+                    <td>2026-02-02T06:42:12.099Z</td>
+                    <td>2026-02-02T06:42:30.314Z</td>
+                </tr>
+
+                <tr>
+                    <td style="font-family: monospace; font-size: 12px;">639fbc6e-556f-4a...</td>
+                    <td><span class="badge complete">COMPLETE</span></td>
+                    <td>2026-02-02T06:43:36.891Z</td>
+                    <td>2026-02-02T06:43:48.355Z</td>
+                </tr>
+
+                <tr>
+                    <td style="font-family: monospace; font-size: 12px;">f76a837d-aaf9-47...</td>
+                    <td><span class="badge complete">COMPLETE</span></td>
+                    <td>2026-02-02T06:44:50.376Z</td>
+                    <td>2026-02-02T06:45:13.724Z</td>
+                </tr>
+
+            </tbody>
+        </table>
+    </section>
+
+    <section>
+        <h2>💬 会话情况</h2>
+        <div class="stat-grid">
+            <div class="stat-card">
+                <div class="number">1</div>
+                <div class="label">总会话数</div>
+            </div>
+            <div class="stat-card success">
+                <div class="number">0</div>
+                <div class="label">活跃会话</div>
+            </div>
+            <div class="stat-card warning">
+                <div class="number">0</div>
+                <div class="label">已关闭</div>
+            </div>
+        </div>
+        
+        <h3 style="margin-top: 20px; margin-bottom: 10px;">最近会话</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>会话 ID</th>
+                    <th>状态</th>
+                    <th>开始时间</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                <tr>
+                    <td style="font-family: monospace; font-size: 12px;">d0685b80-d6a0-4b...</td>
+                    <td><span class="badge unknown">UNKNOWN</span></td>
+                    <td>2026-02-02T01:19:05.139Z</td>
+                </tr>
+
+            </tbody>
+        </table>
+    </section>
+
+    <section>
+        <h2>⚠️ 错误警告</h2>
+        <p>总错误数: <strong>143</strong></p>
+        
+        <h3 style="margin-top: 20px; margin-bottom: 10px;">常见错误</h3>
+<div class="error-item"><strong>(15次)</strong> [openclaw] Non-fatal unhandled rejection (continuing): TypeE</div><div class="error-item"><strong>(4次)</strong> [38;5;167m[tools] exec failed: zsh:1: no matches found: /Us</div><div class="error-item"><strong>(4次)</strong> [tools] exec failed: zsh:1: no matches found: /Users/jaceho/</div><div class="error-item"><strong>(3次)</strong> {"subsystem":"gateway/channels/telegram"} [38;5;167mtelegra</div><div class="error-item"><strong>(1次)</strong> {"subsystem":"gateway/channels/telegram"} telegram setMyComm</div><div class="error-item"><strong>(1次)</strong> [38;5;138mRPC probe:[39m [38;5;167mfailed[39m</div><div class="error-item"><strong>(1次)</strong> [38;5;138mRPC target:[39m ws://127.0.0.1:18789</div><div class="error-item"><strong>(1次)</strong>   [38;5;167mgateway closed (1006 abnormal closure (no close</div><div class="error-item"><strong>(1次)</strong>   [38;5;167mGateway target: ws://127.0.0.1:18789[39m</div><div class="error-item"><strong>(1次)</strong>   [38;5;167mSource: cli --url[39m</div>
+    </section>
+
+    <section>
+        <h2>📋 最近事件</h2>
+        <h3 style="margin-top: 20px; margin-bottom: 10px;">最后20个事件</h3>
+
+        <div class="event-item">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span class="event-time">2026-02-02T08:55:49.254Z</span>
+                <span style="background: #E0E0E0; padding: 2px 8px; border-radius: 3px; font-size: 12px;">other</span>
+            </div>
+            <div class="event-message"><strong>openclaw</strong>: [openclaw] Non-fatal unhandled rejection (continuing): TypeError: fetch failed
+ </div>
+        </div>
+
+        <div class="event-item">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span class="event-time">2026-02-02T08:55:59.750Z</span>
+                <span style="background: #E0E0E0; padding: 2px 8px; border-radius: 3px; font-size: 12px;">other</span>
+            </div>
+            <div class="event-message"><strong>openclaw</strong>: [openclaw] Non-fatal unhandled rejection (continuing): TypeError: fetch failed
+ </div>
+        </div>
+
+        <div class="event-item">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span class="event-time">2026-02-02T08:56:10.653Z</span>
+                <span style="background: #E0E0E0; padding: 2px 8px; border-radius: 3px; font-size: 12px;">other</span>
+            </div>
+            <div class="event-message"><strong>openclaw</strong>: [openclaw] Non-fatal unhandled rejection (continuing): TypeError: fetch failed
+ </div>
+        </div>
+
+        <div class="event-item">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span class="event-time">2026-02-02T08:56:21.948Z</span>
+                <span style="background: #E0E0E0; padding: 2px 8px; border-radius: 3px; font-size: 12px;">other</span>
+            </div>
+            <div class="event-message"><strong>openclaw</strong>: [openclaw] Non-fatal unhandled rejection (continuing): TypeError: fetch failed
+ </div>
+        </div>
+
+        <div class="event-item">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span class="event-time">2026-02-02T08:56:34.055Z</span>
+                <span style="background: #E0E0E0; padding: 2px 8px; border-radius: 3px; font-size: 12px;">other</span>
+            </div>
+            <div class="event-message"><strong>openclaw</strong>: [openclaw] Non-fatal unhandled rejection (continuing): TypeError: fetch failed
+ </div>
+        </div>
+
+        <div class="event-item">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span class="event-time">2026-02-02T08:56:47.756Z</span>
+                <span style="background: #E0E0E0; padding: 2px 8px; border-radius: 3px; font-size: 12px;">other</span>
+            </div>
+            <div class="event-message"><strong>openclaw</strong>: [openclaw] Non-fatal unhandled rejection (continuing): TypeError: fetch failed
+ </div>
+        </div>
+
+        <div class="event-item">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span class="event-time">2026-02-02T08:57:04.664Z</span>
+                <span style="background: #E0E0E0; padding: 2px 8px; border-radius: 3px; font-size: 12px;">other</span>
+            </div>
+            <div class="event-message"><strong>openclaw</strong>: [openclaw] Non-fatal unhandled rejection (continuing): TypeError: fetch failed
+ </div>
+        </div>
+
+        <div class="event-item">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span class="event-time">2026-02-02T08:57:28.024Z</span>
+                <span style="background: #E0E0E0; padding: 2px 8px; border-radius: 3px; font-size: 12px;">other</span>
+            </div>
+            <div class="event-message"><strong>openclaw</strong>: [openclaw] Non-fatal unhandled rejection (continuing): TypeError: fetch failed
+ </div>
+        </div>
+
+        <div class="event-item">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span class="event-time">2026-02-02T08:58:04.120Z</span>
+                <span style="background: #E0E0E0; padding: 2px 8px; border-radius: 3px; font-size: 12px;">other</span>
+            </div>
+            <div class="event-message"><strong>openclaw</strong>: [openclaw] Non-fatal unhandled rejection (continuing): TypeError: fetch failed
+ </div>
+        </div>
+
+        <div class="event-item">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span class="event-time">2026-02-02T08:59:05.895Z</span>
+                <span style="background: #E0E0E0; padding: 2px 8px; border-radius: 3px; font-size: 12px;">gateway_event</span>
+            </div>
+            <div class="event-message"><strong>{"subsystem":"gateway/channels/telegram"}</strong>: {"subsystem":"gateway/channels/telegram"} Telegram network error: Network reques</div>
+        </div>
+
+        <div class="event-item">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span class="event-time">2026-02-02T08:59:05.934Z</span>
+                <span style="background: #E0E0E0; padding: 2px 8px; border-radius: 3px; font-size: 12px;">other</span>
+            </div>
+            <div class="event-message"><strong>openclaw</strong>: [openclaw] Non-fatal unhandled rejection (continuing): TypeError: fetch failed
+ </div>
+        </div>
+
+        <div class="event-item">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span class="event-time">2026-02-02T08:59:18.723Z</span>
+                <span style="background: #E0E0E0; padding: 2px 8px; border-radius: 3px; font-size: 12px;">other</span>
+            </div>
+            <div class="event-message"><strong>openclaw</strong>: [openclaw] Non-fatal unhandled rejection (continuing): TypeError: fetch failed
+ </div>
+        </div>
+
+        <div class="event-item">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span class="event-time">2026-02-02T08:59:29.356Z</span>
+                <span style="background: #E0E0E0; padding: 2px 8px; border-radius: 3px; font-size: 12px;">other</span>
+            </div>
+            <div class="event-message"><strong>openclaw</strong>: [openclaw] Non-fatal unhandled rejection (continuing): TypeError: fetch failed
+ </div>
+        </div>
+
+        <div class="event-item">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span class="event-time">2026-02-02T08:59:39.994Z</span>
+                <span style="background: #E0E0E0; padding: 2px 8px; border-radius: 3px; font-size: 12px;">other</span>
+            </div>
+            <div class="event-message"><strong>openclaw</strong>: [openclaw] Non-fatal unhandled rejection (continuing): TypeError: fetch failed
+ </div>
+        </div>
+
+        <div class="event-item">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span class="event-time">2026-02-02T08:59:50.910Z</span>
+                <span style="background: #E0E0E0; padding: 2px 8px; border-radius: 3px; font-size: 12px;">other</span>
+            </div>
+            <div class="event-message"><strong>openclaw</strong>: [openclaw] Non-fatal unhandled rejection (continuing): TypeError: fetch failed
+ </div>
+        </div>
+
+        <div class="event-item">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span class="event-time">2026-02-02T09:00:01.918Z</span>
+                <span style="background: #E0E0E0; padding: 2px 8px; border-radius: 3px; font-size: 12px;">other</span>
+            </div>
+            <div class="event-message"><strong>openclaw</strong>: [openclaw] Non-fatal unhandled rejection (continuing): TypeError: fetch failed
+ </div>
+        </div>
+
+        <div class="event-item">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span class="event-time">2026-02-02T09:00:14.015Z</span>
+                <span style="background: #E0E0E0; padding: 2px 8px; border-radius: 3px; font-size: 12px;">other</span>
+            </div>
+            <div class="event-message"><strong>openclaw</strong>: [openclaw] Non-fatal unhandled rejection (continuing): TypeError: fetch failed
+ </div>
+        </div>
+
+        <div class="event-item">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span class="event-time">2026-02-02T09:00:27.720Z</span>
+                <span style="background: #E0E0E0; padding: 2px 8px; border-radius: 3px; font-size: 12px;">other</span>
+            </div>
+            <div class="event-message"><strong>openclaw</strong>: [openclaw] Non-fatal unhandled rejection (continuing): TypeError: fetch failed
+ </div>
+        </div>
+
+        <div class="event-item">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span class="event-time">2026-02-02T09:00:44.624Z</span>
+                <span style="background: #E0E0E0; padding: 2px 8px; border-radius: 3px; font-size: 12px;">other</span>
+            </div>
+            <div class="event-message"><strong>openclaw</strong>: [openclaw] Non-fatal unhandled rejection (continuing): TypeError: fetch failed
+ </div>
+        </div>
+
+        <div class="event-item">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span class="event-time">2026-02-02T09:01:08.105Z</span>
+                <span style="background: #E0E0E0; padding: 2px 8px; border-radius: 3px; font-size: 12px;">other</span>
+            </div>
+            <div class="event-message"><strong>openclaw</strong>: [openclaw] Non-fatal unhandled rejection (continuing): TypeError: fetch failed
+ </div>
+        </div>
+
+    </section>
+
+    <footer>
+        <p>本报告由 OpenClawMonitor 自动生成</p>
+        <p>© 2026 OpenClaw 系统监控</p>
+    </footer>
+</div>
+</body>
+</html>
